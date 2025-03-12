@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://eqqm5bb0vb1l"]
+
+[ext_resource type="Script" uid="uid://mhfsbutcssjf" path="res://Classes/Door.cs" id="1_3kr4k"]
+[ext_resource type="Material" uid="uid://bsdxpm86iarb0" path="res://Materials/wooden_floor.tres" id="2_enifj"]
+
+[sub_resource type="Animation" id="Animation_enifj"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_3kr4k"]
+resource_name = "open"
+length = 0.8
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.8, 1, 0, 0.707107, 0, 0.707107)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0nao1"]
+_data = {
+&"RESET": SubResource("Animation_enifj"),
+&"open": SubResource("Animation_3kr4k")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0nao1"]
+size = Vector3(0.9, 2, 0.025)
+
+[node name="Door" type="AnimatableBody3D" node_paths=PackedStringArray("AnimationPlayer")]
+script = ExtResource("1_3kr4k")
+IsLocked = false
+AnimationPlayer = NodePath("AnimationPlayer")
+Label = "Open"
+Message = ""
+metadata/_custom_type_script = "uid://cj26l2xacrjuk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0nao1")
+}
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1, -0.025)
+shape = SubResource("BoxShape3D_0nao1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1, -0.025)
+material_override = ExtResource("2_enifj")
+size = Vector3(0.9, 2, 0.025)

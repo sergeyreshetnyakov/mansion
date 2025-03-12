@@ -1,0 +1,481 @@
+[gd_scene load_steps=14 format=3 uid="uid://dfjxiqmgdqld1"]
+
+[ext_resource type="PackedScene" uid="uid://c7eht3kvar71n" path="res://Prefabs/PlayerController.tscn" id="1_n4fve"]
+[ext_resource type="PackedScene" uid="uid://cv3k2783a8p1o" path="res://Levels/Floor1.tscn" id="2_t655w"]
+[ext_resource type="PackedScene" uid="uid://do6inao0fiein" path="res://Levels/Floor2.tscn" id="3_yl6g1"]
+[ext_resource type="PackedScene" uid="uid://cps4euko6lxrh" path="res://Levels/Attic.tscn" id="4_76vd3"]
+[ext_resource type="Material" uid="uid://bu87r1oj277e4" path="res://Materials/grass.tres" id="5_ubb8a"]
+[ext_resource type="Material" uid="uid://cwfvua8ypkgcw" path="res://Materials/brick_wall.tres" id="6_emfwi"]
+[ext_resource type="Material" uid="uid://bsdxpm86iarb0" path="res://Materials/wooden_floor.tres" id="7_ltasm"]
+[ext_resource type="PackedScene" uid="uid://o46y07h5oekf" path="res://Levels/Catacomb.tscn" id="8_y85sb"]
+[ext_resource type="PackedScene" uid="uid://eqqm5bb0vb1l" path="res://Prefabs/Door.tscn" id="9_1a4mw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_76vd3"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_ubb8a"]
+sky_material = SubResource("ProceduralSkyMaterial_76vd3")
+
+[sub_resource type="Environment" id="Environment_emfwi"]
+background_mode = 2
+sky = SubResource("Sky_ubb8a")
+ambient_light_source = 2
+ambient_light_color = Color(0.0383972, 0.0383972, 0.0383971, 1)
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+volumetric_fog_enabled = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_ltasm"]
+left_to_right = 1.0
+size = Vector3(1, 0.6, 1)
+
+[node name="Mansion" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.921569, 0.921569, 1, 1)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_emfwi")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_n4fve")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, -1, 1.6)
+
+[node name="Lightning" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.7, 6, 1.5)
+light_energy = 5.0
+spot_range = 9.0
+spot_angle = 73.9902
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 8.5, 6.9)
+
+[node name="OmniLight3D36" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, 0.9)
+
+[node name="OmniLight3D29" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 8.5, 1.9)
+
+[node name="OmniLight3D30" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 8.5, 0.9)
+
+[node name="OmniLight3D31" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8.5, -5.1)
+
+[node name="OmniLight3D32" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 8.5, -4.6)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 8.5, 5.4)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1, 8.5, 7.5)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1, 5.8, 7.5)
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1, 2.8, 7.5)
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2, 2.8, 7.1)
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3, 2.8, 9)
+
+[node name="OmniLight3D34" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4, 1.8, 12.7)
+
+[node name="OmniLight3D35" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4, 1.8, 9.3)
+
+[node name="OmniLight3D28" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6, 8.5, 2.9)
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.8, -1.9)
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 2.8, -1.1)
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 2.8, -4.5)
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 2.8, -4.5)
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6, 2.8, -1)
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.8, 0.700001)
+
+[node name="OmniLight3D17" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.8, 0.700001)
+
+[node name="OmniLight3D18" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.8, 3.7)
+
+[node name="OmniLight3D19" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1, 2.8, 3.7)
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1, 2.8, -5)
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.6, -4.9)
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 2.8, -4.9)
+
+[node name="OmniLight3D20" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 5.6, -4.9)
+
+[node name="OmniLight3D33" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 5.6, 5.1)
+
+[node name="OmniLight3D21" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, 5.6, -4.4)
+
+[node name="OmniLight3D22" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, 5.6, -1.4)
+
+[node name="OmniLight3D23" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 5.6, -1.4)
+
+[node name="OmniLight3D24" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 5.6, -2.1)
+
+[node name="OmniLight3D25" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8, 5.6, -2.1)
+
+[node name="OmniLight3D26" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, 5.6, -4.5)
+
+[node name="OmniLight3D37" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, -0.4, 1.5)
+
+[node name="OmniLight3D38" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4, -3.4, 1.5)
+
+[node name="OmniLight3D39" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, -4.8, 4.1)
+
+[node name="OmniLight3D40" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, -4.8, 9.1)
+
+[node name="OmniLight3D41" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, -7.8, 9.1)
+
+[node name="OmniLight3D42" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8, -7.8, 6)
+
+[node name="OmniLight3D43" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4, -7.8, 2.6)
+
+[node name="OmniLight3D44" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3, -7.8, 1.5)
+
+[node name="OmniLight3D45" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -7.8, 1.5)
+
+[node name="OmniLight3D27" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4, 5.6, 1.5)
+
+[node name="Catacomb" parent="." instance=ExtResource("8_y85sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.752, -2.972, 1.5)
+
+[node name="Yard" type="Node3D" parent="."]
+
+[node name="CSGBox3D236" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.305, 1, 10.025)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.5, 4, 0.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D237" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.505, 1, 5.525)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.5, 4, 0.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D240" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.305, 1, 16.525)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.5, 4, 0.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D241" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.305, 1, 13.275)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(6, 4, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D242" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.305, 1, 5.525)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.5, 4, 0.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D243" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.305, 1, 16.525)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.5, 4, 0.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D244" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.305, 1, 0.0249996)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(32.5, 4, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D250" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32.305, 0.8, 11.025)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(5, 2.5, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D251" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28.605, 0.8, 12.275)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(2.5, 2.5, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D254" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28.605, 0.8, 9.275)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(1.5, 2.5, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D257" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28.555, -0.75, 11.025)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(5.6, 0.6, 0.3)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D262" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28.155, -0.75, 10.525)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(1, 0.6, 0.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D258" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32.355, -0.75, 11.025)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(5.6, 0.6, 0.3)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D259" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.455, -0.75, 8.275)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.1, 0.6, 3.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D260" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.455, -0.75, 13.775)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.1, 0.6, 3.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D261" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.455, 2.1, 11.025)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(5.4, 0.1, 3.9)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D255" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28.605, 1.75, 10.525)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(1, 0.6, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D256" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.455, -0.5, 11.025)
+material_override = ExtResource("7_ltasm")
+use_collision = true
+size = Vector3(5, 0.1, 3.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D252" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 30.455, 0.8, 13.625)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(3.9, 2.5, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D253" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 30.455, 0.8, 8.425)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(3.9, 2.5, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D265" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.905, 0.5, -4.5)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(2, 3.1, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D267" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.605, 2.1, -4.525)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(1.9, 0.1, 5.6)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D264" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 22.705, 0.5, -3.675)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(5.4, 3.055, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D266" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 22.705, 0.5, -5.345)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(5.4, 3.055, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D249" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.505, 1, -10.775)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(10.9, 4, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D245" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 23.305, 1, 16.525)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(23.5, 4, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D246" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 23.305, 1, 5.525)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(23.5, 4, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D238" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.505, 1, -16.475)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.5, 4, 0.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D239" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.505, 1, -5.075)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.5, 4, 0.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D247" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.305, 1, -16.475)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.5, 4, 0.5)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D248" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 23.305, 1, -16.475)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(23.5, 4, 0.2)
+material = ExtResource("6_emfwi")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Yard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4, -0.75, 10.526)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+mesh = SubResource("PrismMesh_ltasm")
+material = ExtResource("7_ltasm")
+
+[node name="Ground" type="CSGBox3D" parent="Yard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -1.05, 0.3)
+material_override = ExtResource("5_ubb8a")
+use_collision = true
+size = Vector3(50, 0.1, 34)
+material = ExtResource("5_ubb8a")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Yard/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.45, -0.25, 1.19)
+operation = 2
+size = Vector3(7.5, 1, 1.7)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Yard/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.65, -0.25, -4.81)
+operation = 2
+size = Vector3(5.3, 1, 1.5)
+
+[node name="Node3D14" type="Node3D" parent="Yard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.152, -0.972, -4.5)
+
+[node name="CSGBox3D178" type="CSGBox3D" parent="Yard/Node3D14"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0.6)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.3, 2, 0.01)
+material = ExtResource("6_emfwi")
+
+[node name="CSGBox3D179" type="CSGBox3D" parent="Yard/Node3D14"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, -0.6)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(0.3, 2, 0.01)
+
+[node name="CSGBox3D180" type="CSGBox3D" parent="Yard/Node3D14"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2.5, 0)
+material_override = ExtResource("6_emfwi")
+use_collision = true
+size = Vector3(1.5, 1, 0.01)
+material = ExtResource("6_emfwi")
+
+[node name="Floor1" parent="." instance=ExtResource("2_t655w")]
+
+[node name="Floor2" parent="." instance=ExtResource("3_yl6g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 3, 1.5)
+
+[node name="Attic" parent="." instance=ExtResource("4_76vd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.251, 6, 1.5)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.255, 0, 0.6)
+
+[node name="Door" parent="Node3D" instance=ExtResource("9_1a4mw")]
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 8.74228e-08, -1, -3.82137e-15, -1, -8.74228e-08, 4.37114e-08, -2.255, 2, 2.4)
+
+[node name="Door" parent="Node3D2" instance=ExtResource("9_1a4mw")]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7eht3kvar71n"]
+
+[ext_resource type="Script" uid="uid://dtylkkgr24w8e" path="res://Prefabs/Scripts/PlayerController.cs" id="1_l5s0g"]
+[ext_resource type="Script" uid="uid://nj5scjt70oby" path="res://Classes/RotateableCamera.cs" id="3_a6j2n"]
+[ext_resource type="PackedScene" uid="uid://ypxgn65wqlil" path="res://Prefabs/HUD.tscn" id="4_a6j2n"]
+[ext_resource type="Script" uid="uid://b04e2yg7vpp7s" path="res://Prefabs/Scripts/PlayerInteractRay.cs" id="4_cebs7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cokxn"]
+radius = 0.4
+height = 1.75
+
+[node name="PlayerController" type="CharacterBody3D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_l5s0g")
+camera = NodePath("RotateableCamera")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_cokxn")
+
+[node name="RotateableCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+script = ExtResource("3_a6j2n")
+metadata/_custom_type_script = "uid://nj5scjt70oby"
+
+[node name="InteractRay" type="RayCast3D" parent="RotateableCamera"]
+target_position = Vector3(0, 0, -2.5)
+script = ExtResource("4_cebs7")
+metadata/_custom_type_script = "uid://0g4b7ugjsdnv"
+
+[node name="Inventory" type="Node" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("4_a6j2n")]
+
+[connection signal="Label" from="RotateableCamera/InteractRay" to="HUD" method="OnLabel"]
+[connection signal="Message" from="RotateableCamera/InteractRay" to="HUD" method="OnMessage"]
