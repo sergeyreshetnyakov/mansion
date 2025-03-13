@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cps4euko6lxrh"]
+[gd_scene load_steps=4 format=3 uid="uid://cps4euko6lxrh"]
 
 [ext_resource type="Material" uid="uid://bsdxpm86iarb0" path="res://Materials/wooden_floor.tres" id="1_b5fob"]
 [ext_resource type="Material" uid="uid://cwfvua8ypkgcw" path="res://Materials/brick_wall.tres" id="2_5lxv4"]
+[ext_resource type="PackedScene" uid="uid://eqqm5bb0vb1l" path="res://Prefabs/Door.tscn" id="3_2eu8w"]
 
 [node name="Attic" type="Node3D"]
 
@@ -978,3 +979,9 @@ transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5.75, 1.
 material_override = ExtResource("2_5lxv4")
 use_collision = true
 size = Vector3(1.5, 3, 0.01)
+
+[node name="Node3D8" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.445, 0, -0.45)
+
+[node name="Door" parent="Node3D8" instance=ExtResource("3_2eu8w")]
+IsLocked = true

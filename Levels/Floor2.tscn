@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://do6inao0fiein"]
+[gd_scene load_steps=5 format=3 uid="uid://do6inao0fiein"]
 
 [ext_resource type="Material" uid="uid://cwfvua8ypkgcw" path="res://Materials/brick_wall.tres" id="1_wmmg5"]
 [ext_resource type="Material" uid="uid://bsdxpm86iarb0" path="res://Materials/wooden_floor.tres" id="2_ybmqe"]
+[ext_resource type="PackedScene" uid="uid://eqqm5bb0vb1l" path="res://Prefabs/Door.tscn" id="3_ybmqe"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_wmmg5"]
 left_to_right = 1.0
@@ -1644,3 +1645,33 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1.5
 material_override = ExtResource("2_ybmqe")
 use_collision = true
 mesh = SubResource("PrismMesh_wmmg5")
+
+[node name="Node3D14" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.205, -0.05, 2.4)
+
+[node name="Door" parent="Node3D14" instance=ExtResource("3_ybmqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.0999999)
+IsLocked = true
+
+[node name="Node3D15" type="Node3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -4.355, 2, 2.3)
+
+[node name="Door" parent="Node3D15" instance=ExtResource("3_ybmqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500002, 0, 0)
+IsLocked = true
+LockedMessage = "The door is blocked by planks"
+
+[node name="Node3D16" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.905001, 0.15, -5.6)
+
+[node name="Door" parent="Node3D16" instance=ExtResource("3_ybmqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500002, -0.05, 0)
+IsLocked = true
+LockedMessage = "The door is blocked by planks"
+
+[node name="Node3D17" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.85, 0.08, -5.2)
+
+[node name="Door" parent="Node3D17" instance=ExtResource("3_ybmqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500002, -0.05, 0)
+IsLocked = true

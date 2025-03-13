@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfjxiqmgdqld1"]
+[gd_scene load_steps=13 format=3 uid="uid://dfjxiqmgdqld1"]
 
 [ext_resource type="PackedScene" uid="uid://c7eht3kvar71n" path="res://Prefabs/PlayerController.tscn" id="1_n4fve"]
 [ext_resource type="PackedScene" uid="uid://cv3k2783a8p1o" path="res://Levels/Floor1.tscn" id="2_t655w"]
@@ -8,7 +8,6 @@
 [ext_resource type="Material" uid="uid://cwfvua8ypkgcw" path="res://Materials/brick_wall.tres" id="6_emfwi"]
 [ext_resource type="Material" uid="uid://bsdxpm86iarb0" path="res://Materials/wooden_floor.tres" id="7_ltasm"]
 [ext_resource type="PackedScene" uid="uid://o46y07h5oekf" path="res://Levels/Catacomb.tscn" id="8_y85sb"]
-[ext_resource type="PackedScene" uid="uid://eqqm5bb0vb1l" path="res://Prefabs/Door.tscn" id="9_1a4mw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_76vd3"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -469,13 +468,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 3, 1.5)
 
 [node name="Attic" parent="." instance=ExtResource("4_76vd3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.251, 6, 1.5)
-
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.255, 0, 0.6)
-
-[node name="Door" parent="Node3D" instance=ExtResource("9_1a4mw")]
-
-[node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 8.74228e-08, -1, -3.82137e-15, -1, -8.74228e-08, 4.37114e-08, -2.255, 2, 2.4)
-
-[node name="Door" parent="Node3D2" instance=ExtResource("9_1a4mw")]

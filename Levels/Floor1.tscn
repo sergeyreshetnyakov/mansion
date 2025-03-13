@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://cv3k2783a8p1o"]
+[gd_scene load_steps=10 format=4 uid="uid://cv3k2783a8p1o"]
 
 [ext_resource type="Material" uid="uid://bsdxpm86iarb0" path="res://Materials/wooden_floor.tres" id="1_cy0dw"]
 [ext_resource type="Material" uid="uid://cwfvua8ypkgcw" path="res://Materials/brick_wall.tres" id="2_34r4i"]
+[ext_resource type="PackedScene" uid="uid://eqqm5bb0vb1l" path="res://Prefabs/Door.tscn" id="3_34r4i"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jbqmt"]
 _surfaces = [{
@@ -1490,3 +1491,52 @@ transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 4.25, 1.
 material_override = ExtResource("2_34r4i")
 use_collision = true
 size = Vector3(1, 3, 0.01)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.255, 0, 0.6)
+
+[node name="Door" parent="Node3D" instance=ExtResource("3_34r4i")]
+
+[node name="Node3D7" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.255, 0, -4.95)
+
+[node name="Door" parent="Node3D7" instance=ExtResource("3_34r4i")]
+IsLocked = true
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 8.74228e-08, -1, -3.82137e-15, -1, -8.74228e-08, 4.37114e-08, -2.255, 2, 2.4)
+
+[node name="Door" parent="Node3D2" instance=ExtResource("3_34r4i")]
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 8.74228e-08, -1, -3.82137e-15, -1, -8.74228e-08, 4.37114e-08, -2.255, 2, 4.9)
+
+[node name="Door" parent="Node3D3" instance=ExtResource("3_34r4i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500002, 0, 0)
+IsLocked = true
+
+[node name="Node3D4" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 8.74228e-08, -1, -3.82137e-15, -1, -8.74228e-08, 4.37114e-08, 3.745, 2, 9.45)
+
+[node name="Door" parent="Node3D4" instance=ExtResource("3_34r4i")]
+IsLocked = true
+LockedMessage = "Planks is blocking the door"
+
+[node name="Node3D5" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 8.74228e-08, -1, -3.82137e-15, -1, -8.74228e-08, 4.37114e-08, 11.245, 2, 9.45)
+
+[node name="Door" parent="Node3D5" instance=ExtResource("3_34r4i")]
+IsLocked = true
+LockedMessage = "The door is locked from other side"
+
+[node name="Node3D6" type="Node3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 8.74228e-08, 8.74228e-08, -1, -3.82137e-15, 8.74228e-08, 3.82137e-15, 1, 6.645, 2, 6.75)
+
+[node name="Door" parent="Node3D6" instance=ExtResource("3_34r4i")]
+IsLocked = true
+LockedMessage = "The door is locked from other side"
+
+[node name="Door2" parent="Node3D6" instance=ExtResource("3_34r4i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199999, 0, -7.45)
+IsLocked = true
+LockedMessage = "The door is locked"
