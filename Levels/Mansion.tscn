@@ -168,6 +168,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, -0.4, 1.5)
 [node name="OmniLight3D38" type="OmniLight3D" parent="Lightning"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4, -3.4, 1.5)
 
+[node name="OmniLight3D46" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6, -4.3, -2.9)
+
+[node name="OmniLight3D47" type="OmniLight3D" parent="Lightning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, -4.3, -2.9)
+
 [node name="OmniLight3D39" type="OmniLight3D" parent="Lightning"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, -4.8, 4.1)
 
@@ -432,6 +438,11 @@ material = ExtResource("5_ubb8a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.45, -0.25, 1.19)
 operation = 2
 size = Vector3(7.5, 1, 1.7)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Yard/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.55, -0.25, 1.19)
+operation = 2
+size = Vector3(1.75, 2, 1.75)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Yard/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.65, -0.25, -4.81)
